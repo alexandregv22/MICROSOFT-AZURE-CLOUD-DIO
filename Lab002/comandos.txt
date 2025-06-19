@@ -1,0 +1,20 @@
+docker build -t cursoia/land:latest .
+
+docker run -d -p 80:80 cursoia/land:latest
+
+az login
+
+az acr login --name acralexgvlb02
+
+docker tag cursoia/land:latest acralexgvlb02.azurecr.io/cursoia-land:latest
+
+docker push acralexgvlb02.azurecr.io/cursoia-land:latest
+
+Criar arquivo de Services.yaml e Deployment.yaml
+
+az aks get-credentials --resource-group aks-dev-alexgv-lab02_group --name aks-dev-eastus-001-dio-lab02
+
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
+kubectl get svc landing-page
