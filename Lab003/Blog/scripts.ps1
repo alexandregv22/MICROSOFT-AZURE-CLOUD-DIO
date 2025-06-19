@@ -21,9 +21,10 @@ docker push blogalexandreacr.azurecr.io/blog-alexandre-app:latest
 
 #containerID = blogalexandreacr.azurecr.io/blog-alexandre-app:latest
 #user = blogalexandreacr
+#password = FMlJlrWIpOZ7r7hzqoyxdL7Zh/P/4IgAEP4+1cHOmx+ACRATy1Oj
 
 # Cria o Environment container app
 az containerapp env create --name blog-alexandre-env --resource-group containerappslab03 --location eastus
 
 # Cria o Container App
-az containerapp create --name blog-alexandre-app --resource-group containerappslab03 --image blogalexandreacr.azurecr.io/blog-alexandre-app:latest --environment blog-alexandre-env --target-port 80 --ingress 'external' --registry-username blogalexandreacr --registry-server blogalexandreacr.azurecr.io
+az containerapp create --name blog-alexandre-app --resource-group containerappslab03 --image blogalexandreacr.azurecr.io/blog-alexandre-app:latest --environment blog-alexandre-env --target-port 80 --ingress 'external' --registry-username blogalexandreacr --registry-password FMlJlrWIpOZ7r7hzqoyxdL7Zh/P/4IgAEP4+1cHOmx+ACRATy1Oj --registry-server blogalexandreacr.azurecr.io
